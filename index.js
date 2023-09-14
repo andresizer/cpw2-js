@@ -60,17 +60,19 @@ function mean(grades){
     
   const prompt = require('prompt-sync')({sigint: true});
   
-  const nomeAluno = prompt('Digite um nome: ');
+  // const nomeAluno = prompt('Digite um nome: ');
 
   let somaNotas = 0;
   
 while(grades.length < 3) {
   const nota = prompt('Digite uma nota: ');
-     
+  
   // Adiciona a nota à lista
-  grades.push(nota); 
+  grades.push(Number(nota)); 
+}
 
-  somaNotas += Number(nota);
+for (i = 0; i < grades.length; i++) {
+  somaNotas += grades[i];
 }
 
 const mediaNotas = somaNotas / grades.length;
@@ -111,12 +113,12 @@ function isApproved(mean){
 
   const prompt = require('prompt-sync')({sigint: true});
   
-  const nomeAluno = prompt('Digite um nome: ');
+  // const nomeAluno = prompt('Digite um nome: ');
 
-  const media = prompt('Digite uma média: ');
+  // const media = prompt('Digite uma média: ');
     
 
-  if ( Number(media) >= 7 ) {
+  if ( mean >= 7 ) {
     return 'aprovado';
     // return nomeAluno + " está aprovado com a nota: " + media;
   } else {
@@ -127,7 +129,7 @@ function isApproved(mean){
 }
 
   // Exemplo de uso:
-  const media = [];
+  const media = 8;
   console.log(isApproved(media));
 
 
